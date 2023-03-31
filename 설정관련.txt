@@ -1,0 +1,30 @@
+SpringBoot 4.11.0
+
+Ecipse web 플러그인 마켓에서 설치
+
+lombok 설치
+
+java openjdk 11 그러나 부트 4.11은 기본적으로 16버전 내부에 탑재하였음
+
+mysql 8.0.17 사용
+
+==================================================
+
+spring security bean으로 설정해서 사용하였음
+
+==================================================
+
+시큐리티 원리정리
+
+시큐리티 로그인(/loginProc) -> 로그인 버튼 눌러서 SecurityConfig에서 설정한 loginProcessingUrl("/loginProc") 로 들어오면
+
+시큐리티가 해당 주소를 가로채서 PrincipalDetailsService의  loadUserByUsername(String username) 함수를 싷행하는데
+
+이는 UserRepository에 있는 findByUsername 함수를 통해서 해당 유저가 있는지 찾아서 잇다면
+
+new PrincipalDetails(userEntity)를 리턴한다 
+
+이 리턴 되는 PrincipalDetails는 UserDetails를 Implement 하여
+
+여기서 구성된 모든 user정보는 시큐리티 세션 영역에 있는 Authentication 객체에 담기게 된다 
+
